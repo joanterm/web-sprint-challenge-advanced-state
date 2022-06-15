@@ -2,7 +2,12 @@
 import { combineReducers } from 'redux'
 import {
   MOVE_CLOCKWISE,
-  MOVE_COUNTERCLOCKWISE
+  MOVE_COUNTERCLOCKWISE,
+  SET_QUIZ_INTO_STATE,
+  SET_SELECTED_ANSWER,
+  SET_INFO_MESSAGE,
+  INPUT_CHANGE,
+  RESET_FORM
 } 
 from "./action-types"
 
@@ -39,8 +44,18 @@ function wheel(state = initialWheelState, action) {
   return state
 }
 
-const initialQuizState = null
+const initialQuizState = {
+  quizData: []
+}
 function quiz(state = initialQuizState, action) {
+  switch(action.type) {
+    case SET_QUIZ_INTO_STATE:
+      // return action.payload
+      return {
+        ...state,
+        quizData: action.payload
+      }
+  }
   return state
 }
 
