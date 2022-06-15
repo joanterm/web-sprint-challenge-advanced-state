@@ -2,7 +2,8 @@
 import {
   MOVE_CLOCKWISE,
   MOVE_COUNTERCLOCKWISE
-} from "./action-types"
+} 
+from "./action-types"
 
 export function moveClockwise() { 
   return {
