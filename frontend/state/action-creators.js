@@ -38,6 +38,8 @@ export function inputChange() { }
 
 export function resetForm() { }
 
+
+
 // ❗ Async action creators
 export function fetchQuiz() {
   return function (dispatch) {
@@ -55,6 +57,10 @@ export function fetchQuiz() {
     // - Dispatch an action to send the obtained quiz to its state
   }
 }
+
+
+
+
 export function postAnswer() {
   return function (dispatch) {
     // On successful POST:

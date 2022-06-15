@@ -44,17 +44,12 @@ function wheel(state = initialWheelState, action) {
   return state
 }
 
-const initialQuizState = {
-  quizData: []
-}
+
+const initialQuizState = ""
 function quiz(state = initialQuizState, action) {
   switch(action.type) {
     case SET_QUIZ_INTO_STATE:
-      // return action.payload
-      return {
-        ...state,
-        quizData: action.payload
-      }
+      return action.payload
   }
   return state
 }

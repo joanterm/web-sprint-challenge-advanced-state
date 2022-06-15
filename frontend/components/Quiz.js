@@ -5,30 +5,30 @@ import {fetchQuiz} from "../state/action-creators"
 
 function Quiz(props) {
   console.log("Quiz: ", props)
-  const {fetchQuiz} = props
-
+  const {fetchQuiz, quiz} = props
+ 
   useEffect(() => {
-    fetchQuiz()
+      fetchQuiz()
   }, [])
   
   return (
     <div id="wrapper">
       {
         // quiz already in state? Let's use that, otherwise render "Loading next quiz..."
-        true ? (
+        //true 
+        quiz ? (
           <>
-            <h2>What is a closure?</h2>
-
+            <h2>{quiz.question}</h2>
             <div id="quizAnswers">
               <div className="answer selected">
-                A function
+                {quiz.answers[0].text}
                 <button>
                   SELECTED
                 </button>
               </div>
 
               <div className="answer">
-                An elephant
+                {quiz.answers[1].text}
                 <button>
                   Select
                 </button>
@@ -43,10 +43,4 @@ function Quiz(props) {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    quizData: state.quiz.quizData
-  }
-}
-
-export default connect(mapStateToProps, {fetchQuiz})(Quiz)
+export default connect(st=>st, {fetchQuiz})(Quiz)
