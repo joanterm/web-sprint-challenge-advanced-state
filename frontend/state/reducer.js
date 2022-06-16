@@ -78,6 +78,19 @@ const initialFormState = {
   newFalseAnswer: '',
 }
 function form(state = initialFormState, action) {
+  switch(action.type) {
+    case INPUT_CHANGE:
+      return {
+        ...state,
+        ...action.payload
+      }
+    case RESET_FORM:
+      return {
+        newQuestion: "",
+        newTrueAnswer: '',
+        newFalseAnswer: '',
+      }
+  }
   return state
 }
 
