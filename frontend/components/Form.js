@@ -23,8 +23,10 @@ export function Form(props) {
     })
   }
 
-  // The submit button is disabled until all inputs have values more than one character
-  //       in length after trimming leading and trailing whitespace
+  const handleDisabled = () => {
+    return form.newQuestion.trim("").length < 1 || form.newTrueAnswer.trim("").length < 1 || form.newFalseAnswer.trim("").length < 1   
+  }
+
 
   return (
     <form id="form" onSubmit={onSubmit}>
@@ -32,7 +34,7 @@ export function Form(props) {
       <input name="newQuestion" value={form.newQuestion} maxLength={50} onChange={onChange} id="newQuestion" placeholder="Enter question" />
       <input name="newTrueAnswer" value={form.newTrueAnswer} maxLength={50} onChange={onChange} id="newTrueAnswer" placeholder="Enter true answer" />
       <input name="newFalseAnswer" value={form.newFalseAnswer} maxLength={50} onChange={onChange} id="newFalseAnswer" placeholder="Enter false answer" />
-      <button id="submitNewQuizBtn">Submit new quiz</button>
+      <button disabled={handleDisabled()} id="submitNewQuizBtn">Submit new quiz</button>
     </form>
   )
 }
