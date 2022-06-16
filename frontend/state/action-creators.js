@@ -23,7 +23,12 @@ export function moveCounterClockwise() {
   }
 }
 
-export function selectAnswer() { }
+export function selectAnswer(answer) { 
+  return({
+    type: SET_SELECTED_ANSWER,
+    payload: answer
+  })
+}
 
 export function setMessage() { }
 

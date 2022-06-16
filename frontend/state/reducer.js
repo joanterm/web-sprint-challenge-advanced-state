@@ -54,8 +54,12 @@ function quiz(state = initialQuizState, action) {
   return state
 }
 
-const initialSelectedAnswerState = null
+const initialSelectedAnswerState = ""
 function selectedAnswer(state = initialSelectedAnswerState, action) {
+  switch(action.type) {
+    case SET_SELECTED_ANSWER:
+      return action.payload
+  }
   return state
 }
 
