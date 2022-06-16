@@ -4,7 +4,7 @@ import * as actionCreators from '../state/action-creators'
 
 export function Form(props) {
   console.log("FORM:", props)
-  const {inputChange, form, postQuiz, newQuestion, newTrueAnswer, newFalseAnswer} = props
+  const {inputChange, form, postQuiz} = props
 
   const onChange = evt => {
     const {name, value} = evt.target
@@ -26,7 +26,6 @@ export function Form(props) {
   const handleDisabled = () => {
     return form.newQuestion.trim("").length < 1 || form.newTrueAnswer.trim("").length < 1 || form.newFalseAnswer.trim("").length < 1   
   }
-
 
   return (
     <form id="form" onSubmit={onSubmit}>
