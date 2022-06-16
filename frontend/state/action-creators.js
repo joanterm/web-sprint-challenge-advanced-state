@@ -81,7 +81,7 @@ export function postAnswer({quiz_id, answer_id}) {
     })
     .then((response) => {
       console.log(response.data)
-      dispatch(selectAnswer(response.data))
+      // dispatch(selectAnswer(response.data))
       dispatch(setMessage(response.data.message))
       dispatch(fetchQuiz())
     })
@@ -90,6 +90,8 @@ export function postAnswer({quiz_id, answer_id}) {
     })
   }
 }
+
+
 export function postQuiz() {
   return function (dispatch) {
     // On successful POST:
