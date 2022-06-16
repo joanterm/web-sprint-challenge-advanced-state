@@ -65,6 +65,10 @@ function selectedAnswer(state = initialSelectedAnswerState, action) {
 
 const initialMessageState = ''
 function infoMessage(state = initialMessageState, action) {
+  switch(action.payload) {
+    case SET_INFO_MESSAGE: 
+      return action.payload
+  }
   return state
 }
 

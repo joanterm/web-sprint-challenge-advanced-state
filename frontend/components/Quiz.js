@@ -23,7 +23,6 @@ function Quiz(props) {
      })
   }
 
-
   return (
     <div id="wrapper">
       {

@@ -30,7 +30,12 @@ export function selectAnswer(answer) {
   })
 }
 
-export function setMessage() { }
+export function setMessage(message) {
+  return({
+    type: SET_INFO_MESSAGE,
+    payload: message
+  })
+}
 
 export function setQuiz(quiz) {
   return {
@@ -76,7 +81,9 @@ export function postAnswer({quiz_id, answer_id}) {
     })
     .then((response) => {
       console.log(response.data)
-      // dispatch(selectAnswer(response.data))
+      dispatch(selectAnswer(response.data))
+      dispatch(setMessage(response.data.message))
+      dispatch(fetchQuiz())
     })
     .catch((error) => {
       console.log(error.message)
